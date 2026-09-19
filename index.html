@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giáo Dục Quốc Phòng & An Ninh - Bài Học Trực Tuyến</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1b5e20;
+            --primary-hover: #2e7d32;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b5e20 0%, #0d3b11 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.025em;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -20px auto 0;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            padding: 8px 16px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 12px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .lesson-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .lesson-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .lesson-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .badge {
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .lesson-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .arrow-icon {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .lesson-card:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .lesson-card {
+                padding: 16px;
+            }
+            .badge {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+            .lesson-title {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GIÁO DỤC QUỐC PHÒNG & AN NINH</h1>
+        <p>Hệ thống bài học trực tuyến dành cho học sinh</p>
+    </header>
+
+    <main class="container">
+        <!-- Ô tìm kiếm bài học nhanh -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm bài học..." onkeyup="filterLessons()">
+        </div>
+
+        <!-- Danh sách bài học -->
+        <div class="lesson-grid" id="lessonGrid">
+
+            <!-- Bài 1 -->
+            <a href="bai1.html" class="lesson-card">
+                <div class="lesson-info">
+                    <span class="badge">Bài 01</span>
+                    <div>
+                        <div class="lesson-title">Một số nội dung cơ bản về Giáo dục Quốc phòng và An ninh</div>
+                        <div class="lesson-desc">Tìm hiểu tổng quan về đối tượng và mục tiêu học tập</div>
+                    </div>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <!-- Bài 2 -->
+            <a href="bai2.html" class="lesson-card">
+                <div class="lesson-info">
+                    <span class="badge">Bài 02</span>
+                    <div>
+                        <div class="lesson-title">Luật Giáo dục Quốc phòng và An ninh</div>
+                        <div class="lesson-desc">Quyền và nghĩa vụ của công dân đối với quốc phòng</div>
+                    </div>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <!-- Bài 3 -->
+            <a href="bai3.html" class="lesson-card">
+                <div class="lesson-info">
+                    <span class="badge">Bài 03</span>
+                    <div>
+                        <div class="lesson-title">Truyền thống đánh giặc giữ nước của dân tộc Việt Nam</div>
+                        <div class="lesson-desc">Lịch sử chống ngoại xâm và bài học lịch sử</div>
+                    </div>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <!-- Bài 4 -->
+            <a href="bai4.html" class="lesson-card">
+                <div class="lesson-info">
+                    <span class="badge">Bài 04</span>
+                    <div>
+                        <div class="lesson-title">Phòng chống chiến lược "Diễn biến hòa bình"</div>
+                        <div class="lesson-desc">Các biện pháp bảo vệ an ninh tư tưởng, văn hóa</div>
+                    </div>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <!-- Bài 5 -->
+            <a href="bai5.html" class="lesson-card">
+                <div class="lesson-info">
+                    <span class="badge">Bài 05</span>
+                    <div>
+                        <div class="lesson-title">Một số kiến thức quân sự và kĩ thuật cơ bản</div>
+                        <div class="lesson-desc">Hướng dẫn kĩ thuật và quy tắc an toàn</div>
+                    </div>
+                </div>
+                <span class="arrow-icon">→</span>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>© Học liệu điện tử - Giáo dục Quốc phòng & An ninh</p>
+        </footer>
+    </main>
+
+    <script>
+        function filterLessons() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.lesson-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.lesson-title').innerText.toLowerCase();
+                const desc = card.querySelector('.lesson-desc').innerText.toLowerCase();
+                const badge = card.querySelector('.badge').innerText.toLowerCase();
+
+                if (title.includes(input) || desc.includes(input) || badge.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
